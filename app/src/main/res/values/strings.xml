@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Expiration Tracker</string>
+    <string name="category">Category Type</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="cycle">Cycle</string>
+    <string name="price">Price</string>
+    <string name="notes">Notes</string>
+    <string name="reminder">Reminder</string>
+    <string name="expiry_details"> Expiry Details</string>
+    <string name="add_details">Add Details</string>
+    <string name="empty_details_prompt">Please enter the %s</string>
+</resources>
