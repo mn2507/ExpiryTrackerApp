@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class AddExpiryDetails extends AppCompatActivity {
 
     Button btn_add;
     EditText et_title, et_date, et_cycle, et_price, et_notes, et_reminder;
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_expiry);
 
         btn_add = findViewById(R.id.btn_add);
         et_title = findViewById(R.id.et_title);
@@ -72,7 +72,5 @@ public class MainActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(reminder)) {
             et_reminder.setError(getString(R.string.empty_details_prompt, (getString(R.string.reminder))));
         }
-
-
     }
 }
