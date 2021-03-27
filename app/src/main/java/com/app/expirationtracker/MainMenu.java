@@ -34,8 +34,17 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(new Intent(MainMenu.this, ViewExpiryDetails.class));
             }
         });
-
         countRecords();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        countRecords();
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
     public void countRecords() {

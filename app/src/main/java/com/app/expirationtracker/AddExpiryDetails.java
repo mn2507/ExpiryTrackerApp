@@ -3,6 +3,7 @@ package com.app.expirationtracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,6 +17,7 @@ public class AddExpiryDetails extends AppCompatActivity {
     EditText et_title, et_date, et_cycle, et_price, et_notes, et_reminder;
     String title, date, cycle, price, notes, reminder;
     ObjectExpiry objectExpiry = new ObjectExpiry();
+    boolean createSuccessful;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,17 @@ public class AddExpiryDetails extends AppCompatActivity {
             public void onClick(View v) {
                 AddDetails();
                 Context context = v.getRootView().getContext();
-                boolean createSuccessful = new TableControllerExpiry(context).create(objectExpiry);
-                if (createSuccessful) {
-                    Toast.makeText(context, "Expiry details was saved.", Toast.LENGTH_SHORT).show();
+
+                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(date)
+                        || TextUtils.isEmpty(cycle) || TextUtils.isEmpty(reminder)) {
+                    Toast.makeText(context, "Please enter all the required information!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Unable to save expiry details", Toast.LENGTH_SHORT).show();
+                    createSuccessful = new TableControllerExpiry(context).create(objectExpiry);
+                }
+                if (createSuccessful) {
+                    startActivity(new Intent(getApplicationContext(), MainMenu.class));
+                    Toast.makeText(context, "Expiry details was saved.", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
@@ -71,6 +79,12 @@ public class AddExpiryDetails extends AppCompatActivity {
         }
         if (TextUtils.isEmpty(reminder)) {
             et_reminder.setError(getString(R.string.empty_details_prompt, (getString(R.string.reminder))));
+        }
+        if (TextUtils.isEmpty(price)) {
+            et_price.setError(getString(R.string.empty_details_prompt, (getString(R.string.price))));
+        }
+        if (TextUtils.isEmpty(notes)) {
+            et_notes.setError(getString(R.string.empty_details_prompt, (getString(R.string.notes))));
         }
     }
 }

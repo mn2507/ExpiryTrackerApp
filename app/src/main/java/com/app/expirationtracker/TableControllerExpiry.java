@@ -17,7 +17,6 @@ public class TableControllerExpiry extends DatabaseHandler {
     public boolean create(ObjectExpiry objectExpiry) {
 
         ContentValues values = new ContentValues();
-
         values.put("title", objectExpiry.title);
         values.put("date", objectExpiry.date);
         values.put("cycle", objectExpiry.cycle);

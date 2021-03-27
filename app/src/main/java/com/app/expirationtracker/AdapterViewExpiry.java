@@ -58,14 +58,18 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
                                     Intent intent = new Intent(activityContext, EditExpiryDetails.class);
                                     intent.putExtra("ID", objectExpiryList.get(position).id);
                                     activityContext.startActivity(intent);
+                                    ((Activity) activityContext).finish();
                                 } else if (item == 1) {
                                     boolean deleteSuccessful = new TableControllerExpiry(context).delete(objectExpiryList.get(position).id);
 
                                     if (deleteSuccessful) {
                                         Toast.makeText(context, "Student record was deleted.", Toast.LENGTH_SHORT).show();
+                                        objectExpiryList.remove(position);
+                                        notifyItemRemoved(position);
                                     } else {
                                         Toast.makeText(context, "Unable to delete student record.", Toast.LENGTH_SHORT).show();
                                     }
+
                                 }
                                 dialog.dismiss();
                             }
