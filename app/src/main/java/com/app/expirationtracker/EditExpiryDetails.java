@@ -3,6 +3,7 @@ package com.app.expirationtracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -68,7 +69,9 @@ public class EditExpiryDetails extends AppCompatActivity {
                 boolean updateSuccessful = tableControllerExpiry.update(objectExpiry);
 
                 if (updateSuccessful) {
+                    startActivity(new Intent(getApplicationContext(), ViewExpiryDetails.class));
                     Toast.makeText(EditExpiryDetails.this, "Expiry details was updated.", Toast.LENGTH_SHORT).show();
+                    finish();
                 } else {
                     Toast.makeText(EditExpiryDetails.this, "Unable to update expiry details.", Toast.LENGTH_SHORT).show();
                 }
