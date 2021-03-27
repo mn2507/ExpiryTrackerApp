@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey2"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/expiry_details"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:layout_marginTop="70dp"
+            android:textSize="35dp"
+            android:textColor="@color/color_header"
+            />
+        <EditText
+            android:id="@+id/et_title"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_border"
+            android:hint="@string/title"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:id="@+id/et_date"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_border"
+            android:hint="@string/date"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:id="@+id/et_cycle"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_border"
+            android:hint="@string/cycle"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:id="@+id/et_price"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_border"
+            android:hint="@string/price"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:id="@+id/et_notes"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_border"
+            android:hint="@string/notes"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:id="@+id/et_reminder"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_border"
+            android:hint="@string/reminder"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:textColor="@color/black"
+            />
+
+        <!--        <CheckBox-->
+        <!--            android:id="@+id/text_terms"-->
+        <!--            android:layout_width="395dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="5dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:buttonTint="@color/yellow"-->
+        <!--            android:fontFamily="@font/sfprodisplaymedium"-->
+        <!--            android:hint="I have read and agree to the Privacy Policy"-->
+        <!--            android:textColorHint="@android:color/black" />-->
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:text="@string/edit_details"
+            android:background="@drawable/btn_rounded_corner_box"
+            android:textSize="18dp"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+</ScrollView>

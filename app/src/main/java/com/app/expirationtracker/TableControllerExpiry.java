@@ -31,7 +31,7 @@ public class TableControllerExpiry extends DatabaseHandler {
         return createSuccessful;
     }
 
-    public int count() {
+    public int countExpiryList() {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String sql = "SELECT * FROM expiry";
@@ -79,5 +79,78 @@ public class TableControllerExpiry extends DatabaseHandler {
         db.close();
 
         return objectExpiries;
+    }
+
+    public ObjectExpiry readSingleExpiry(int expiryId) {
+
+        ObjectExpiry objectExpiry = null;
+
+        String sql = "SELECT * FROM expiry WHERE id = " + expiryId;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor.moveToFirst()) {
+
+            int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex("id")));
+            String title = cursor.getString(cursor.getColumnIndex("title"));
+            String date = cursor.getString(cursor.getColumnIndex("date"));
+            String cycle = cursor.getString(cursor.getColumnIndex("cycle"));
+            String price = cursor.getString(cursor.getColumnIndex("price"));
+            String notes = cursor.getString(cursor.getColumnIndex("notes"));
+            String reminder = cursor.getString(cursor.getColumnIndex("reminder"));
+
+            objectExpiry = new ObjectExpiry();
+            objectExpiry.id = id;
+            objectExpiry.title = title;
+            objectExpiry.date = date;
+            objectExpiry.cycle = cycle;
+            objectExpiry.price = price;
+            objectExpiry.notes = notes;
+            objectExpiry.reminder = reminder;
+
+        }
+
+        cursor.close();
+        db.close();
+
+        return objectExpiry;
+
+    }
+
+    public boolean update(ObjectExpiry objectExpiry) {
+
+        ContentValues values = new ContentValues();
+
+        values.put("title", objectExpiry.title);
+        values.put("date", objectExpiry.date);
+        values.put("cycle", objectExpiry.cycle);
+        values.put("price", objectExpiry.price);
+        values.put("notes", objectExpiry.notes);
+        values.put("reminder", objectExpiry.reminder);
+
+        String where = "id = ?";
+
+        String[] whereArgs = {Integer.toString(objectExpiry.id)};
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        boolean updateSuccessful = db.update("expiry", values, where, whereArgs) > 0;
+        db.close();
+
+        return updateSuccessful;
+
+    }
+
+    public boolean delete(int id) {
+        boolean deleteSuccessful = false;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        deleteSuccessful = db.delete("expiry", "id ='" + id + "'", null) > 0;
+        db.close();
+
+        return deleteSuccessful;
+
     }
 }

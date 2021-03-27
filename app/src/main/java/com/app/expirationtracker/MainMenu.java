@@ -39,7 +39,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void countRecords() {
-        int recordCount = new TableControllerExpiry(this).count();
+        int recordCount = new TableControllerExpiry(this).countExpiryList();
         tv_record_count.setText(getString(R.string.no_of_records_found, recordCount));
     }
 }
