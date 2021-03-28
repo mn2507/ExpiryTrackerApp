@@ -2,23 +2,46 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true">
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grey2"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/expiry_details"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/sfprodisplaybold"
-            android:layout_marginTop="70dp"
-            android:textSize="35dp"
+            android:gravity="center"
+            android:text="@string/edit_expiry_details"
             android:textColor="@color/color_header"
-            />
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/iv_expiry"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="10dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <Button
+            android:id="@+id/btn_add_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/bg_full_curve_gradient"
+            android:fontFamily="@font/sfprodisplaybold"
+            android:text="@string/change_image"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            app:backgroundTint="@null"/>
 
         <EditText
             android:id="@+id/et_title"
@@ -49,90 +72,80 @@
             android:singleLine="true"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
+
         <EditText
             android:id="@+id/et_cycle"
-            android:singleLine="true"
             android:layout_width="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/et_border"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
             android:hint="@string/cycle"
             android:padding="10dp"
-            android:textColorHint="@color/black"
-            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:singleLine="true"
             android:textColor="@color/black"
-            />
+            android:textColorHint="@color/black" />
 
         <EditText
             android:id="@+id/et_price"
-            android:singleLine="true"
             android:layout_width="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/et_border"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
             android:hint="@string/price"
             android:padding="10dp"
-            android:textColorHint="@color/black"
-            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:singleLine="true"
             android:textColor="@color/black"
-            />
+            android:textColorHint="@color/black" />
+
         <EditText
             android:id="@+id/et_notes"
-            android:singleLine="true"
             android:layout_width="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/et_border"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
             android:hint="@string/notes"
             android:padding="10dp"
-            android:textColorHint="@color/black"
-            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:singleLine="true"
             android:textColor="@color/black"
-            />
+            android:textColorHint="@color/black" />
+
         <EditText
             android:id="@+id/et_reminder"
-            android:singleLine="true"
             android:layout_width="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/et_border"
+            android:fontFamily="@font/sfprodisplaymediumitalic"
             android:hint="@string/reminder"
             android:padding="10dp"
-            android:textColorHint="@color/black"
-            android:fontFamily="@font/sfprodisplaymediumitalic"
+            android:singleLine="true"
             android:textColor="@color/black"
-            />
+            android:textColorHint="@color/black" />
 
-        <!--        <CheckBox-->
-        <!--            android:id="@+id/text_terms"-->
-        <!--            android:layout_width="395dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="5dp"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:buttonTint="@color/yellow"-->
-        <!--            android:fontFamily="@font/sfprodisplaymedium"-->
-        <!--            android:hint="I have read and agree to the Privacy Policy"-->
-        <!--            android:textColorHint="@android:color/black" />-->
         <Button
             android:id="@+id/btn_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
-            android:text="@string/edit_details"
-            android:background="@drawable/btn_rounded_corner_box"
-            android:textSize="18dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/bg_full_curve_gradient"
             android:fontFamily="@font/sfprodisplaybold"
+            android:text="@string/edit_details"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            />
+            android:textSize="18dp"
+            app:backgroundTint="@null"/>
 
     </LinearLayout>
 </ScrollView>

@@ -7,13 +7,21 @@
     <string name="price">Price</string>
     <string name="notes">Notes</string>
     <string name="reminder">Reminder</string>
-    <string name="expiry_details"> Expiry Details</string>
+    <string name="edit_expiry_details">Edit Expiry Details</string>
     <string name="add_details">Add Details</string>
     <string name="edit_details">Edit Details</string>
+    <string name="add_image">Add Image</string>
+    <string name="change_image">Change Image</string>
     <string name="empty_details_prompt">Please enter the %s</string>
     <string name="add_expiry_details">Add Expiry Details</string>
     <string name="view_expiry_details">View Expiry Details</string>
     <string name="no_of_records_found">%d Records Found</string>
     <string name="placeholder">TextView</string>
     <string name="update_expiry">Update Expiry</string>
+    <string name="title_holder">Title:</string>
+    <string name="date_holder">Date:</string>
+    <string name="cycle_holder">Cycle:</string>
+    <string name="price_holder">Price:</string>
+    <string name="notes_holder">Notes:</string>
+    <string name="reminder_holder">Reminder:</string>
 </resources>

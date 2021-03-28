@@ -21,76 +21,148 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_title_holder"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:fontFamily="@font/sfprodisplaymedium"
+                android:text="@string/title_holder"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintRight_toLeftOf="@id/tv_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/placeholder"
                 android:textColor="@color/yellow"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/tv_date" />
+                app:layout_constraintBottom_toTopOf="@id/tv_date"
+                app:layout_constraintLeft_toRightOf="@id/tv_title_holder" />
+
+            <TextView
+                android:id="@+id/tv_date_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfprodisplaymedium"
+                android:text="@string/date_holder"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintRight_toLeftOf="@id/tv_date"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_holder" />
 
             <TextView
                 android:id="@+id/tv_date"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/placeholder"
                 android:textColor="@color/yellow"
                 android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_date_holder"
                 app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
             <TextView
-                android:id="@+id/tv_cycle"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_cycle_holder"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:fontFamily="@font/sfprodisplaymedium"
+                android:text="@string/cycle_holder"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintRight_toLeftOf="@id/tv_cycle"
+                app:layout_constraintTop_toBottomOf="@id/tv_date_holder" />
+
+            <TextView
+                android:id="@+id/tv_cycle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/placeholder"
                 android:textColor="@color/yellow"
                 android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_cycle_holder"
                 app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
             <TextView
-                android:id="@+id/tv_price"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_price_holder"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:fontFamily="@font/sfprodisplaymedium"
+                android:text="@string/price_holder"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintRight_toLeftOf="@id/tv_price"
+                app:layout_constraintTop_toBottomOf="@id/tv_cycle_holder" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/placeholder"
                 android:textColor="@color/yellow"
                 android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_price_holder"
                 app:layout_constraintTop_toBottomOf="@id/tv_cycle" />
 
             <TextView
-                android:id="@+id/tv_notes"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_notes_holder"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:fontFamily="@font/sfprodisplaymedium"
+                android:text="@string/notes_holder"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintRight_toLeftOf="@id/tv_notes"
+                app:layout_constraintTop_toBottomOf="@id/tv_price_holder" />
+
+            <TextView
+                android:id="@+id/tv_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/placeholder"
                 android:textColor="@color/yellow"
                 android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_notes_holder"
                 app:layout_constraintTop_toBottomOf="@id/tv_price" />
 
             <TextView
-                android:id="@+id/tv_reminder"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_reminder_holder"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:fontFamily="@font/sfprodisplaymedium"
+                android:text="@string/reminder_holder"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintRight_toLeftOf="@id/tv_reminder"
+                app:layout_constraintTop_toBottomOf="@id/tv_notes_holder" />
+
+            <TextView
+                android:id="@+id/tv_reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/placeholder"
                 android:textColor="@color/yellow"
                 android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_reminder_holder"
                 app:layout_constraintTop_toBottomOf="@id/tv_notes" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
