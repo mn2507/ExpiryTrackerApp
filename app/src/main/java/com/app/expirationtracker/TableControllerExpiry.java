@@ -90,6 +90,7 @@ public class TableControllerExpiry extends DatabaseHandler {
             String price = cursor.getString(cursor.getColumnIndex("price"));
             String notes = cursor.getString(cursor.getColumnIndex("notes"));
             String reminder = cursor.getString(cursor.getColumnIndex("reminder"));
+            byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
 
             objectExpiry = new ObjectExpiry();
             objectExpiry.id = id;
@@ -99,6 +100,7 @@ public class TableControllerExpiry extends DatabaseHandler {
             objectExpiry.price = price;
             objectExpiry.notes = notes;
             objectExpiry.reminder = reminder;
+            objectExpiry.image = image;
 
         }
 
@@ -119,6 +121,7 @@ public class TableControllerExpiry extends DatabaseHandler {
         values.put("price", objectExpiry.price);
         values.put("notes", objectExpiry.notes);
         values.put("reminder", objectExpiry.reminder);
+        values.put("image", objectExpiry.image);
 
         String where = "id = ?";
 
