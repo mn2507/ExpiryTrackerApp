@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class AddExpiryDetails extends AppCompatActivity {
 
@@ -80,8 +79,7 @@ public class AddExpiryDetails extends AppCompatActivity {
         reminder = et_reminder.getText().toString().trim();
 
         try {
-            InputStream iStream = getContentResolver().openInputStream(selectedImageUri);
-            byteImage = ImageUtils.getBytes(iStream);
+            byteImage = ImageUtils.getImageBytes(ImageUtils.getImageSizeCompressed(this, selectedImageUri));
         } catch (IOException ioe) {
             Log.e("TAG", "<saveImageInDB> Error : " + ioe.getLocalizedMessage());
             Toast.makeText(getApplicationContext(), "Unable to save image into database", Toast.LENGTH_SHORT).show();

@@ -30,7 +30,7 @@ public class ViewExpiryDetails extends AppCompatActivity {
         objectExpiryList = new ArrayList<>();
 //        objectExpiryList.add(new ObjectExpiry());
 
-        objectExpiryList = new TableControllerExpiry(this).objectExpiryList();
+        objectExpiryList = new TableControllerExpiry(this).viewExpiryList();
 
         adapterViewExpiry = new AdapterViewExpiry(this,objectExpiryList);
         recyclerView = findViewById(R.id.rv_expiry_details);

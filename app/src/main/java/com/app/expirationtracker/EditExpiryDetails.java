@@ -2,7 +2,6 @@ package com.app.expirationtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class EditExpiryDetails extends AppCompatActivity {
 
@@ -75,8 +73,7 @@ public class EditExpiryDetails extends AppCompatActivity {
 
                 // get image
                 try {
-                    InputStream iStream = getContentResolver().openInputStream(selectedImageUri);
-                    byteImage = ImageUtils.getBytes(iStream);
+                    byteImage = ImageUtils.getImageBytes(ImageUtils.getImageSizeCompressed(getApplicationContext(), selectedImageUri));
                 } catch (IOException ioe) {
                     Log.e("TAG", "<saveImageInDB> Error : " + ioe.getLocalizedMessage());
                     Toast.makeText(getApplicationContext(), "Unable to save image into database", Toast.LENGTH_SHORT).show();

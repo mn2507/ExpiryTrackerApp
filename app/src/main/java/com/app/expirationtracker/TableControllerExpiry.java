@@ -39,7 +39,7 @@ public class TableControllerExpiry extends DatabaseHandler {
         return recordCount;
     }
 
-    public List<ObjectExpiry> objectExpiryList() {
+    public List<ObjectExpiry> viewExpiryList() {
         List<ObjectExpiry> objectExpiries = new ArrayList<>();
         String sql = "SELECT * FROM expiry ORDER BY id DESC";
         SQLiteDatabase db = this.getWritableDatabase();

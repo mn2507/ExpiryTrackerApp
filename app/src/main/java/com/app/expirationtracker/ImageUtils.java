@@ -1,11 +1,21 @@
 package com.app.expirationtracker;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.media.ImageReader;
+import android.net.Uri;
+import android.util.Log;
+import android.util.TypedValue;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Iterator;
 
 public class ImageUtils {
 
@@ -30,4 +40,25 @@ public class ImageUtils {
         }
         return byteBuffer.toByteArray();
     }
+
+    public static Bitmap getImageSizeCompressed(Context context, Uri uri) throws FileNotFoundException {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(
+                context.getContentResolver().openInputStream(uri),
+                null,
+                options);
+        int imageHeight = options.outHeight;
+        int imageWidth = options.outWidth;
+        if (imageHeight > 2880 || imageWidth > 1440) {
+            imageWidth = imageWidth / 4;
+            imageHeight = imageHeight / 4;
+        }
+//        Log.d("ImageSize", String.valueOf(imageWidth+ " "+imageHeight));
+
+        InputStream iStream = context.getContentResolver().openInputStream(uri);
+        return Bitmap.createScaledBitmap(BitmapFactory.decodeStream(iStream), imageWidth, imageHeight, true);
+
+    }
+
 }
