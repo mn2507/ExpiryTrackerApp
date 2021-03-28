@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,11 +64,11 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
                                     boolean deleteSuccessful = new TableControllerExpiry(context).delete(objectExpiryList.get(position).id);
 
                                     if (deleteSuccessful) {
-                                        Toast.makeText(context, "Student record was deleted.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Expiry detail was deleted.", Toast.LENGTH_SHORT).show();
                                         objectExpiryList.remove(position);
                                         notifyItemRemoved(position);
                                     } else {
-                                        Toast.makeText(context, "Unable to delete student record.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Unable to delete expiry detail.", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
@@ -75,6 +76,28 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
                             }
                         }).show();
                 return true;
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getRootView().getContext();
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                final View dialogImageView = inflater.inflate(R.layout.dialog_image_view, null, false);
+
+                ImageView imageViewDialog = (ImageView) dialogImageView.findViewById(R.id.iv_dialog);
+                imageViewDialog.setImageBitmap(ImageUtils.getImage(objectExpiryList.get(position).image));
+
+                new AlertDialog.Builder(context)
+                        .setView(dialogImageView)
+                        .setTitle("Title: " + objectExpiryList.get(position).title)
+                        .setPositiveButton("Done",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+
+                                }).show();
             }
         });
     }

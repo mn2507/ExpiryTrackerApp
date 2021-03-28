@@ -4,20 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class AddExpiryDetails extends AppCompatActivity {
 
-    Button btn_add;
+    Button btn_add, btn_add_image;
     EditText et_title, et_date, et_cycle, et_price, et_notes, et_reminder;
     String title, date, cycle, price, notes, reminder;
+    byte[] byteImage;
+    ImageView iv_expiry;
     ObjectExpiry objectExpiry = new ObjectExpiry();
     boolean createSuccessful;
+    Uri selectedImageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +40,8 @@ public class AddExpiryDetails extends AppCompatActivity {
         et_price = findViewById(R.id.et_price);
         et_notes = findViewById(R.id.et_notes);
         et_reminder = findViewById(R.id.et_reminder);
+        btn_add_image = findViewById(R.id.btn_add_image);
+        iv_expiry = findViewById(R.id.iv_expiry);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +62,13 @@ public class AddExpiryDetails extends AppCompatActivity {
                 }
             }
         });
+
+        btn_add_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGallery();
+            }
+        });
     }
 
     private void AddDetails() {
@@ -61,12 +79,21 @@ public class AddExpiryDetails extends AppCompatActivity {
         notes = et_notes.getText().toString().trim();
         reminder = et_reminder.getText().toString().trim();
 
+        try {
+            InputStream iStream = getContentResolver().openInputStream(selectedImageUri);
+            byteImage = ImageUtils.getBytes(iStream);
+        } catch (IOException ioe) {
+            Log.e("TAG", "<saveImageInDB> Error : " + ioe.getLocalizedMessage());
+            Toast.makeText(getApplicationContext(), "Unable to save image into database", Toast.LENGTH_SHORT).show();
+        }
+
         objectExpiry.title = title;
         objectExpiry.date = date;
         objectExpiry.cycle = cycle;
         objectExpiry.price = price;
         objectExpiry.notes = notes;
         objectExpiry.reminder = reminder;
+        objectExpiry.image = byteImage;
 
         if (TextUtils.isEmpty(title)) {
             et_title.setError(getString(R.string.empty_details_prompt, (getString(R.string.title))));
@@ -80,11 +107,24 @@ public class AddExpiryDetails extends AppCompatActivity {
         if (TextUtils.isEmpty(reminder)) {
             et_reminder.setError(getString(R.string.empty_details_prompt, (getString(R.string.reminder))));
         }
-        if (TextUtils.isEmpty(price)) {
-            et_price.setError(getString(R.string.empty_details_prompt, (getString(R.string.price))));
-        }
-        if (TextUtils.isEmpty(notes)) {
-            et_notes.setError(getString(R.string.empty_details_prompt, (getString(R.string.notes))));
+    }
+
+    void openGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Choose Image"), 100);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 100) {
+                selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+                    iv_expiry.setImageURI(selectedImageUri);
+                }
+            }
         }
     }
 }

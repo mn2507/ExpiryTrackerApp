@@ -9,6 +9,7 @@ public class ObjectExpiry {
     String price;
     String notes;
     String reminder;
+    byte[] image;
 
     public ObjectExpiry(){
 

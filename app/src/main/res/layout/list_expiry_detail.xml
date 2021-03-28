@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/title_holder"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/orange"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_title"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/date_holder"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/orange"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_date"
                 app:layout_constraintTop_toBottomOf="@id/tv_title_holder" />
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/cycle_holder"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/orange"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_cycle"
                 app:layout_constraintTop_toBottomOf="@id/tv_date_holder" />
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/price_holder"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/orange"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_price"
                 app:layout_constraintTop_toBottomOf="@id/tv_cycle_holder" />
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/notes_holder"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/orange"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_notes"
                 app:layout_constraintTop_toBottomOf="@id/tv_price_holder" />
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sfprodisplaymedium"
                 android:text="@string/reminder_holder"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/orange"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_reminder"
                 app:layout_constraintTop_toBottomOf="@id/tv_notes_holder" />

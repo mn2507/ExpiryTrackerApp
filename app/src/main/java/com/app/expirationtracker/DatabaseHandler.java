@@ -24,7 +24,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "cycle TEXT, " +
                 "price TEXT, " +
                 "notes TEXT, " +
-                "reminder TEXT ) ";
+                "reminder TEXT, " +
+                "image BLOB ) ";
 
         db.execSQL(sql);
     }

@@ -23,6 +23,7 @@ public class TableControllerExpiry extends DatabaseHandler {
         values.put("price", objectExpiry.price);
         values.put("notes", objectExpiry.notes);
         values.put("reminder", objectExpiry.reminder);
+        values.put("image", objectExpiry.image);
 
         SQLiteDatabase db = this.getWritableDatabase();
         boolean createSuccessful = db.insert("expiry", null, values) > 0;
@@ -32,20 +33,15 @@ public class TableControllerExpiry extends DatabaseHandler {
 
     public int countExpiryList() {
         SQLiteDatabase db = this.getWritableDatabase();
-
         String sql = "SELECT * FROM expiry";
         int recordCount = db.rawQuery(sql, null).getCount();
         db.close();
-
         return recordCount;
     }
 
     public List<ObjectExpiry> objectExpiryList() {
-
         List<ObjectExpiry> objectExpiries = new ArrayList<>();
-
         String sql = "SELECT * FROM expiry ORDER BY id DESC";
-
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -59,6 +55,7 @@ public class TableControllerExpiry extends DatabaseHandler {
                 String price = cursor.getString(cursor.getColumnIndex("price"));
                 String notes = cursor.getString(cursor.getColumnIndex("notes"));
                 String reminder = cursor.getString(cursor.getColumnIndex("reminder"));
+                byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
 
                 ObjectExpiry objectExpiry = new ObjectExpiry();
                 objectExpiry.id = id;
@@ -68,26 +65,20 @@ public class TableControllerExpiry extends DatabaseHandler {
                 objectExpiry.price = price;
                 objectExpiry.notes = notes;
                 objectExpiry.reminder = reminder;
+                objectExpiry.image = image;
 
                 objectExpiries.add(objectExpiry);
-
             } while (cursor.moveToNext());
         }
-
         cursor.close();
         db.close();
-
         return objectExpiries;
     }
 
     public ObjectExpiry readSingleExpiry(int expiryId) {
-
         ObjectExpiry objectExpiry = null;
-
         String sql = "SELECT * FROM expiry WHERE id = " + expiryId;
-
         SQLiteDatabase db = this.getWritableDatabase();
-
         Cursor cursor = db.rawQuery(sql, null);
 
         if (cursor.moveToFirst()) {
