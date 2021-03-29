@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,12 +22,18 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
     Context context;
     private Context activityContext;
     boolean deleteSuccessful;
+    private expiryDeleteListener expiryDeleteListeners;
 
     public List<ObjectExpiry> objectExpiryList;
 
-    public AdapterViewExpiry(Context context, List<ObjectExpiry> objectExpiryList) {
+    interface expiryDeleteListener {
+        void onShowZeroStateScreen();
+    }
+
+    public AdapterViewExpiry(Context context, List<ObjectExpiry> objectExpiryList, expiryDeleteListener expiryDeleteListeners) {
         this.objectExpiryList = objectExpiryList;
         this.activityContext = context;
+        this.expiryDeleteListeners = expiryDeleteListeners;
     }
 
     @NonNull
@@ -68,6 +72,9 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
                                         Toast.makeText(context, "Expiry detail was deleted.", Toast.LENGTH_SHORT).show();
                                         objectExpiryList.remove(position);
                                         notifyDataSetChanged();
+                                        if (objectExpiryList.isEmpty()) {
+                                            expiryDeleteListeners.onShowZeroStateScreen();
+                                        }
                                     } else {
                                         Toast.makeText(context, "Unable to delete expiry detail.", Toast.LENGTH_SHORT).show();
                                     }

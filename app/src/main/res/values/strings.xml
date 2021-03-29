@@ -24,4 +24,5 @@
     <string name="price_holder">Price:</string>
     <string name="notes_holder">Notes:</string>
     <string name="reminder_holder">Reminder:</string>
+    <string name="zero_state_message">No expiry details\nhave been added.</string>
 </resources>
