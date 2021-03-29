@@ -78,11 +78,13 @@ public class AddExpiryDetails extends AppCompatActivity {
         notes = et_notes.getText().toString().trim();
         reminder = et_reminder.getText().toString().trim();
 
-        try {
-            byteImage = ImageUtils.getImageBytes(ImageUtils.getImageSizeCompressed(this, selectedImageUri));
-        } catch (IOException ioe) {
-            Log.e("TAG", "<saveImageInDB> Error : " + ioe.getLocalizedMessage());
-            Toast.makeText(getApplicationContext(), "Unable to save image into database", Toast.LENGTH_SHORT).show();
+        if (selectedImageUri != null) {
+            try {
+                byteImage = ImageUtils.getImageBytes(ImageUtils.getImageSizeCompressed(this, selectedImageUri));
+            } catch (IOException ioe) {
+                Log.e("TAG", "<saveImageInDB> Error : " + ioe.getLocalizedMessage());
+                Toast.makeText(getApplicationContext(), "Unable to save image into database", Toast.LENGTH_SHORT).show();
+            }
         }
 
         objectExpiry.title = title;
@@ -106,6 +108,16 @@ public class AddExpiryDetails extends AppCompatActivity {
             et_reminder.setError(getString(R.string.empty_details_prompt, (getString(R.string.reminder))));
         }
     }
+
+    /*
+     In many cases, you can choose between two ways for your app to perform a task.
+     You can have your app ask for permission to perform the operation itself.
+     Alternatively, you can have the app use an intent to have another app perform the task.
+
+     ACTION_IMAGE_CAPTURE and ACTION_GET_CONTENT are both examples of using an Intent to ask another app
+     or the system to provide content to your app without requiring any runtime permissions.
+     Therefore there are no runtime permissions required for these operations.
+    */
 
     void openGallery() {
         Intent intent = new Intent();

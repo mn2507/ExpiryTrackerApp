@@ -65,7 +65,9 @@ public class EditExpiryDetails extends AppCompatActivity {
         et_price.setText(objectExpiry.price);
         et_notes.setText(objectExpiry.notes);
         et_reminder.setText(objectExpiry.reminder);
-        iv_expiry.setImageBitmap(ImageUtils.getImage(objectExpiry.image));
+        if (objectExpiry.image != null) {
+            iv_expiry.setImageBitmap(ImageUtils.getImage(objectExpiry.image));
+        }
 
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override

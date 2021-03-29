@@ -23,6 +23,7 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
 
     Context context;
     private Context activityContext;
+    boolean deleteSuccessful;
 
     public List<ObjectExpiry> objectExpiryList;
 
@@ -61,12 +62,12 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
                                     activityContext.startActivity(intent);
                                     ((Activity) activityContext).finish();
                                 } else if (item == 1) {
-                                    boolean deleteSuccessful = new TableControllerExpiry(context).delete(objectExpiryList.get(position).id);
+                                    deleteSuccessful = new TableControllerExpiry(context).delete(objectExpiryList.get(position).id);
 
                                     if (deleteSuccessful) {
                                         Toast.makeText(context, "Expiry detail was deleted.", Toast.LENGTH_SHORT).show();
                                         objectExpiryList.remove(position);
-                                        notifyItemRemoved(position);
+                                        notifyDataSetChanged();
                                     } else {
                                         Toast.makeText(context, "Unable to delete expiry detail.", Toast.LENGTH_SHORT).show();
                                     }
@@ -82,22 +83,26 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
             @Override
             public void onClick(View v) {
                 Context context = v.getRootView().getContext();
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View dialogImageView = inflater.inflate(R.layout.dialog_image_view, null, false);
+                if (objectExpiryList.get(position).image != null) {
+                    LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    final View dialogImageView = inflater.inflate(R.layout.dialog_image_view, null, false);
 
-                ImageView imageViewDialog = (ImageView) dialogImageView.findViewById(R.id.iv_dialog);
-                imageViewDialog.setImageBitmap(ImageUtils.getImage(objectExpiryList.get(position).image));
+                    ImageView imageViewDialog = (ImageView) dialogImageView.findViewById(R.id.iv_dialog);
+                    imageViewDialog.setImageBitmap(ImageUtils.getImage(objectExpiryList.get(position).image));
 
-                new AlertDialog.Builder(context)
-                        .setView(dialogImageView)
-                        .setTitle("Title: " + objectExpiryList.get(position).title)
-                        .setPositiveButton("Done",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        dialog.cancel();
-                                    }
+                    new AlertDialog.Builder(context)
+                            .setView(dialogImageView)
+                            .setTitle("Title: " + objectExpiryList.get(position).title)
+                            .setPositiveButton("Done",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.cancel();
+                                        }
 
-                                }).show();
+                                    }).show();
+                } else {
+                    Toast.makeText(context, "No image uploaded for this item.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
