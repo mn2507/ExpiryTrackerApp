@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -23,6 +24,8 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
     private Context activityContext;
     boolean deleteSuccessful;
     private expiryDeleteListener expiryDeleteListeners;
+    CardView cv_expiry;
+    View view;
 
     public List<ObjectExpiry> objectExpiryList;
 
@@ -40,6 +43,8 @@ public class AdapterViewExpiry extends RecyclerView.Adapter<AdapterViewExpiry.Vi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_expiry_detail, parent, false);
+        cv_expiry = view.findViewById(R.id.cv_expiry);
+        cv_expiry.setBackgroundResource(R.drawable.et_border);
         return new ViewHolder(view);
     }
 

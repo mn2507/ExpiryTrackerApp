@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:orientation="horizontal"
+        android:layout_marginTop="15dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:cardUseCompatPadding="true">
@@ -24,9 +25,9 @@
                 android:id="@+id/tv_title_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sfprodisplaymedium"
+                android:fontFamily="@font/sfprodisplaybold"
                 android:text="@string/title_holder"
-                android:textColor="@color/orange"
+                android:textColor="@color/magenta"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_title"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -49,9 +50,9 @@
                 android:id="@+id/tv_date_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sfprodisplaymedium"
+                android:fontFamily="@font/sfprodisplaybold"
                 android:text="@string/date_holder"
-                android:textColor="@color/orange"
+                android:textColor="@color/magenta"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_date"
                 app:layout_constraintTop_toBottomOf="@id/tv_title_holder" />
@@ -73,9 +74,9 @@
                 android:id="@+id/tv_cycle_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sfprodisplaymedium"
+                android:fontFamily="@font/sfprodisplaybold"
                 android:text="@string/cycle_holder"
-                android:textColor="@color/orange"
+                android:textColor="@color/magenta"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_cycle"
                 app:layout_constraintTop_toBottomOf="@id/tv_date_holder" />
@@ -97,9 +98,9 @@
                 android:id="@+id/tv_price_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sfprodisplaymedium"
+                android:fontFamily="@font/sfprodisplaybold"
                 android:text="@string/price_holder"
-                android:textColor="@color/orange"
+                android:textColor="@color/magenta"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_price"
                 app:layout_constraintTop_toBottomOf="@id/tv_cycle_holder" />
@@ -121,9 +122,9 @@
                 android:id="@+id/tv_notes_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sfprodisplaymedium"
+                android:fontFamily="@font/sfprodisplaybold"
                 android:text="@string/notes_holder"
-                android:textColor="@color/orange"
+                android:textColor="@color/magenta"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_notes"
                 app:layout_constraintTop_toBottomOf="@id/tv_price_holder" />
@@ -145,9 +146,9 @@
                 android:id="@+id/tv_reminder_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sfprodisplaymedium"
+                android:fontFamily="@font/sfprodisplaybold"
                 android:text="@string/reminder_holder"
-                android:textColor="@color/orange"
+                android:textColor="@color/magenta"
                 android:textSize="18sp"
                 app:layout_constraintRight_toLeftOf="@id/tv_reminder"
                 app:layout_constraintTop_toBottomOf="@id/tv_notes_holder" />
@@ -173,6 +174,6 @@
     <!--        android:layout_width="378dp"-->
     <!--        android:layout_height="5dp"-->
     <!--        android:layout_gravity="center"-->
-    <!--        android:background="@drawable/straightline_magenta" />-->
+    <!--        android:background="@drawable/straightline_yellow" />-->
 
 </LinearLayout>

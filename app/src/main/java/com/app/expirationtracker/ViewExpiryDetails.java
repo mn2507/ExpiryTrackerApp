@@ -1,29 +1,24 @@
 package com.app.expirationtracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ViewExpiryDetails extends AppCompatActivity  {
 
-    ListView mListView;
     ArrayAdapter<ObjectExpiry> arrayAdapter;
     RecyclerView recyclerView;
     AdapterViewExpiry adapterViewExpiry;
     List<ObjectExpiry> objectExpiryList;
     TextView tv_zero_state;
-    SQLiteDatabase mDatabase;
-    TableControllerExpiry controllerExpiry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +54,4 @@ public class ViewExpiryDetails extends AppCompatActivity  {
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
-
-
 }
